@@ -1,0 +1,112 @@
+<section  ng-controller="reviewFormCtrl">
+	<div>
+		<form name="detailsForm" novalidate class="extrovert-form">
+			<div>
+				<h4>Personal Details <span class="required-astriek">*</span></h4>	
+				<section class="row">
+					<section class="col-md-3" class="form-group">
+						<!-- Name *:  --><input name="personalName" placeholder="Name" class="form-control text-input-min-size" required ng-model="details.personalName"  ></input>
+						<p ng-show="detailsForm.personalName.$invalid && !detailsForm.personalName.$pristine" class="required-message">Enter Personal name</p>
+					</section>
+					<section class="col-md-3" class="form-group">
+						<!-- Email Id *:  --><input name="personalEmail" placeholder="Email Id" class="form-control text-input-min-size" required="true" ng-model="details.personalEmail" type="email"></input>
+						<p ng-show="detailsForm.personalEmail.$invalid && !detailsForm.personalEmail.$pristine" class="required-message">Enter valid Personal email</p>
+					</section>
+				</section>
+			</div>	
+			<br>
+			<section class="row form-group">
+				<section class="col-md-4">
+				  <label class="pull-left">Channel <span class="required-astriek">*</span>:</label>			
+				  <ul class="pull-left form-group options-ul" >				  	
+				  	<li class="li_style" ng-repeat="channel in channels">
+				  		<input type="radio" name="channel" ng-model="details.channel" value="{{channel.value}}" required>{{channel.value}}</input>
+				  	</li>				    			    
+				  </ul>					
+				</section>
+				<section class="col-md-4">
+					<label class="pull-left">COP <span class="required-astriek">*</span>:</label>		
+					  <ul class="pull-left form-group options-ul">  				  	
+					    <li class="li_style" ng-repeat="cop in cops">
+					    	<input type="radio" name="cop" ng-model="details.cop" value="{{cop.value}}" required>{{cop.value}}</input>
+					    </li>		    				    
+					  </ul>					
+				</section>
+			</section>
+			<div class="form-group">
+				<h4>Team Lead Details <span class="required-astriek">*</span></h4>	
+				<section class="row">
+					<section class="form-group col-md-3">
+						<!-- Name *:  --><input name="teamLeadName"  placeholder="Name" class="form-control text-input-min-size" required="true" ng-model="details.leadName"></input>
+						<p ng-show="detailsForm.teamLeadName.$invalid && !detailsForm.teamLeadName.$pristine" class="required-message">Enter Team Lead name</p>
+					</section>
+					<section class="form-group col-md-3">
+						<!-- Email Id *: --> <input name="teamLeadEmail" placeholder="Email Id" class="form-control text-input-min-size" required="true" ng-model="details.leadEmail" type="email"></input>
+						<p ng-show="detailsForm.teamLeadEmail.$invalid && !detailsForm.teamLeadEmail.$pristine" class="required-message">Enter valid Team Lead email</p>
+					</section>
+				</section>
+			</div>
+			<div class="form-group">
+				<h4>Coach Details <span class="required-astriek">*</span></h4>	
+				<section class="row">
+					<section class="form-group col-md-3">
+						<!-- Name *: --> <input name="coachName" placeholder="Name" class="form-control text-input-min-size" required="true" ng-model="details.coachName"></input>
+						<p ng-show="detailsForm.coachName.$invalid && !detailsForm.coachName.$pristine" class="required-message">Enter Coach name</p>
+					</section>
+					<section class="form-group col-md-3">
+						<!-- Email Id *: --> <input name="coachEmail" placeholder="Email Id" class="form-control text-input-min-size" required="true" ng-model="details.coachEmail" type="email"></input>
+						<p ng-show="detailsForm.coachEmail.$invalid && !detailsForm.coachEmail.$pristine" class="required-message">Enter valid Coach email</p>
+					</section>
+				</section>
+			</div>
+			<br>
+			<section>
+				<table class="table">
+					<tr>						
+						<th>Initiative Type</th>
+						<th>Name Of Initiative</th>
+						<th>Time Spent</th>
+						<th>Initiative Lead Name</th>
+						<th>Initiative Lead Email</th>
+						<th>Contribution Details</th>
+						<th>Reviewer Rating</th>
+						<th>Reviewer Comments</th>
+					</tr>
+					<tr ng-repeat="initiative in initiatives">						
+						<td>		
+							<select ng-model="initiative.type" ng-options="initiativeType for initiativeType in initiativeTypes">
+							</select>	
+							<span>{{initiative.type}}</span>											
+						</td>
+						<td>
+							<input type="text" ng-model="initiative.name"></input>
+						</td>
+						<td>
+							<input type="number" ng-model="initiative.timeSpent"></input>
+						</td>
+						<td>
+							<input type="text" ng-model="initiative.leadName"></input>
+						</td>
+						<td>
+							<input type="email" ng-model="initiative.leadEmail"></input>
+						</td>
+						<td>
+							<input type="text" ng-model="initiative.contributionDetails"></input>
+						</td>
+						<td>
+							<input type="text"></input>
+						</td>
+						<td>
+							<input type="text"></input>
+						</td>
+					</tr>
+				</table>
+				<button ng-click="addInitiative()">Add Row</button>
+			</section>
+			<section class="text-center">
+				<button style="margin-right: 100px">Save</button>
+				<button ng-click="onSubmit()">Submit</button>
+			</section>
+		</form>
+	</div>
+</section>

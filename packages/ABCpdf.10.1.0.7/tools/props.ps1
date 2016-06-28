@@ -1,0 +1,1 @@
+$nativeDlls = @('ABCpdf10-32.dll', 'ABCpdf10-64.dll', 'PrintHook32.dll', 'PrintHook64.dll', '3DGlue10-32.dll', '3DGlue10-64.dll')

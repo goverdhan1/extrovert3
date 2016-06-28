@@ -1,0 +1,557 @@
+﻿@import "../../core/styles/common";
+
+@charset "utf-8";
+/* CSS Document */
+
+body {
+    margin: 0 auto;
+    margin: 0px;
+    padding: 0px;
+}
+/*less type of css*/
+/*variables*/
+@width1: 486px;
+@width2: 250px;
+@width3: 100%;
+@width4: 96.5%;
+
+@height0: 30px;
+
+@floatleft0: left;
+@floatright0: right;
+
+@color1: #fff;
+@color2: #00a1de;
+@color3: #F0F1F3;
+@color4: #dcdcdc;
+@color5: #222222;
+
+@fontsize0: 12px;
+
+@font0: "OpenSansReg";
+@font1: "OpenSansLight";
+@font2: "OpenSansSemiBold";
+/*less type of css*/
+
+
+/*conatainer starts*/
+#wrapper {
+    min-height: 550px;
+    width: @pageWidth;
+    max-width: @maxPageWidth;
+    min-width: 980px;
+    margin: 0 auto;
+}
+
+/*section container starts*/
+#container {
+    min-height: 1060px;
+    clear: both;
+    background-color: @color3; 
+}
+
+/*article contentleft starts*/
+#contentleft {
+    width: @width4;
+    min-height: 980px;
+    float: @floatleft0;
+    background-color: @color1;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.HC_subheader{
+    padding-top :5px;
+    color: #fff !important;
+}
+
+/*threedivcontainer starts*/
+.threedivcontainer {
+    width: @width1;
+    min-height: 150px;
+    clear: both;
+    float: @floatleft0;
+}
+/*icon-text starts*/
+.icon-text {
+    min-height: 160px;
+    float: @floatleft0;
+    border-right: 1px solid @color3;
+    border-bottom: 1px solid @color3;
+    width:@width3;
+}
+/*icon-text starts*/
+.dashboard-icon {
+    width: @width3;
+    min-height: @height0;
+    float: @floatleft0;
+    margin-top: 40px;
+    text-align: center;
+    font-size: 22px;
+    margin-left:73px;
+}
+/*dashboard-icon ends*/
+
+/*dashboard-text starts*/
+.dashboard-text {
+    width: @width3;
+    min-height: 50px;
+    float: @floatleft0;
+    text-align: center;
+    font-family:OpenSansSemiBold;
+    font-size: @fontsize0+1px;
+    font-weight: normal;
+    padding: 0 30px;
+}
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+/* IE10+ CSS styles go here */
+    .dashboard-text {
+        font-weight: 500;
+    }
+}
+
+@-moz-document url-prefix() { 
+    /* Firefox specific CSS styles go here */
+    .dashboard-text {
+        font-weight: 500;
+    }
+}
+
+.empSearch:-ms-input-placeholder{color:#999 !important;}
+/*dashboard-text ends*/
+/*divimgtxt ends*/
+
+/*dashboard-onlytext starts*/
+.dashboard-onlytext {
+    width: @width3;
+    min-height: 160px;
+    float: @floatleft0;
+    text-align: center;
+    font-family:@font1;
+    font-size: @fontsize0+1px;
+    color: #333;
+    background-color: #FCFCFC;
+    border-right: 1px solid @color3;
+    border-bottom: 1px solid @color3;
+}
+/*dashboard-onlytext ends*/
+/*divonlytxt ends*/
+/*threedivcontainer ends*/
+/*article contentleft ends*/
+
+/*article contentright starts*/
+#contentright {
+    width: @width4;
+    min-height: 980px;
+    float: @floatright0;
+    background-color: @color1;
+    margin-right: 20px;
+    margin-top: 20px;
+    position:relative;
+    overflow:hidden;
+}
+.qVTilesCornerBgImg{    
+    position: relative;
+    left: 410px;
+    top: -20px;
+    /*border: 5px solid #eee;
+    border-radius: 97px;*/
+    height: 100px;
+    width: 100px;
+    text-align: center;
+   
+    i{font-size:100px; color:#f7f7f7;
+    }
+}
+/*contentrightdiv starts*/
+#contentrightdiv {
+    width: @width3;
+    min-height: 500px;
+    float: @floatright0;
+     /*background-position : calc(100% - -10px) -30px;
+    width:200px; height:400px;*/
+}
+#contentrightdiv::after {background:url(../../core/images/icon-Employee_DetailedView-photo-placeholder@2x.png) no-repeat;
+  
+    width:200px; height:400px;
+    border:1px solid red;
+    float:left;
+}
+
+/*empviewdiv starts*/
+#empviewdiv {
+    min-height: 50px;
+    margin-top:-100px;   
+    span.bluebar{
+        border-left: 4px solid #00a1de;
+        display: inline-block;
+        min-height: 33px;
+        float: left;
+        padding: 0;
+        margin-top: 36px;
+        +.empviewheading{
+            padding : 18px 18px 18px 16px;
+        }
+    }
+}
+
+.empviewheading {
+    width: 99%;
+    min-height: 50px;
+    float: left;
+    padding:18px;
+    margin-top:20px;
+   
+    h1 {
+        margin: -3px 0px;
+        font-size: 30px !important;
+        color: #363D52;
+    }
+}   
+.empviewheading:before {
+    width: 4px;
+    height: 30px;
+    float: left;
+    background: #33A6D1;
+}
+
+
+#crightsearch {
+    width: 400px;
+    min-height: 40px;
+    margin-left: 30px;
+    clear: both;
+}
+
+/*crsearch starts*/
+#crsearch {
+    width: 420px;
+    min-height: @height0;
+    float: @floatleft0;
+    border: 1px solid #CFCFCF;
+    border-radius: 3px;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+#crsearch input {
+    font-size: 14px;
+    color: #666;
+}
+/*crsearch ends*/
+
+/*crbutton starts*/
+.crbutton {
+    width: 20px;
+    height: 20px;
+    outline: none;
+    cursor: pointer;
+    color: @color1;
+    float: @floatleft0;
+    margin-right: 10px;
+    margin-top: 2px;
+    border: none;
+    background: url('../../../images/search-icon.png') no-repeat;
+    background-size: 20px 20px;
+}
+.searchComponent .crbutton{
+    position:absolute;
+    left:10px;
+}
+
+#crsearch .fa-remove {
+    margin-top: 10px;
+}
+/*crbutton ends*/
+
+/*crtext starts*/
+.crtext {
+    margin: 0;
+    width: 275px;
+    padding: 3px 15px;
+    font-family:@font1;
+    font-size: @fontsize0;
+    color: #CFCFCF;
+    border: none;
+    outline: none;
+}
+/*crtext ends*/
+/* Fixes submit button height problem in Firefox */
+.crbutton::-moz-focus-inner {
+    border: 0;
+}
+/*crightsearch ends*/
+
+/*contentdown starts*/
+#contentdown {
+    width: 100%;
+    min-height: 200px;
+    clear: both;
+}
+/*contentdownpara starts*/
+#contentdownpara {
+    width: 85%;
+    min-height: @height0;
+    float: @floatleft0;
+    margin-left: 35px;
+    line-height: 25px;
+
+    p {
+        font-family:@font0;
+        font-size: @fontsize0;
+        color: #8c8c8c;
+        font-weight: normal;
+        line-height: 19px;
+        margin:15px 0;
+    }
+}
+/*contentdownpara ends*/
+
+/*contentlist starts*/
+#contentlist {
+    width: 100%;
+    min-height: 200px;
+    clear: both;
+    line-height:20px;
+}
+
+/*firstlist starts*/
+#firstlist {
+    font-family:@font0;
+    font-size: 12px;
+    color: #8c8c8c;
+    float: @floatleft0;
+    margin-left: 10px;
+}
+/*firstlist ends*/
+
+/*secondlist starts*/
+#secondlist {
+    font-family:@font0;
+    font-size: 12px;
+    color: #8c8c8c;
+    float: @floatleft0;
+    list-style: disc;
+    margin-left: 23px;
+}
+/*secondlist ends*/
+/*contentlist ends*/
+
+/*empsearchdiv starts*/
+.empsearchdiv {
+    width: 360px;
+    min-height: 100px;
+    clear: both;
+    margin-left: 30px;
+    border-bottom: 1px solid @color4;
+}
+/*empsearchtop starts*/
+.empsearchtop {
+    width: 440px;
+    min-height: @height0;
+    clear: both;
+
+    p {
+        font-family:@font2;
+        font-size: 14px;
+        color: @color5;
+    }
+}
+
+.empsearchtop
+/*empsearchname starts*/
+.empsearchname {
+    width: @width2;
+    min-height: @height0;
+    float: @floatleft0;
+}
+/*empsearchname ends*/
+
+/*empsearchphno starts*/
+.empsearchphno {
+    width: 150px;
+    min-height: @height0;
+    float: @floatright0;
+}
+/*empsearchphno ends*/
+/*empsearchtop ends*/
+
+/*empsearchdown starts*/
+.empsearchdown {
+    width: 440px;
+    min-height: @height0;
+    clear: both;
+
+    p {
+        font-size: 14px;
+        color: #8c8c8c;
+        font-family:@font0;
+        margin: 0;
+    }
+}
+
+/*empsearchaddr starts*/
+.empsearchaddr {
+    width: @width2;
+    min-height: @height0;
+    float: @floatleft0;
+}
+/*empsearchaddr ends*/
+
+/*empsearchccno starts*/
+.empsearchccno {
+    width: 150px;
+    min-height: @height0;
+    float: @floatright0;
+}
+/*empsearchccno ends*/
+/*empsearchdown ends*/
+/*empsearchdiv ends*/
+/*contentdown ends*/
+
+/*contentrightdiv ends*/
+/*article contentright ends*/
+/*section container ends*/
+
+
+/*tabconsolidate starts*/
+.tabconsolidate {
+    margin-top: 30px;
+}
+
+#contentleft ul, #contentleft ul li {
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+}
+
+#contentleft ul li {
+    width:33.3%;
+    cursor: pointer;
+    float: left;
+}
+#contentleft ul li:nth-child(3n) div.icon-text{
+    border-right:none;
+}
+
+.employeesListDown {
+    padding: 35px;
+    padding-top: 0;
+    display: none;
+}
+
+.employeesListDown li div {
+    padding: 0;
+    font-size: 13px;
+    color: #666;
+}
+
+.employeesListDown ul, .employeesListDown ul li {
+    list-style: none;
+    padding: 0px;
+    line-height: 20px;
+}
+
+.employeesListDown ul li {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0px;
+    cursor: pointer;
+}
+#contentleft ul li{ 
+    -webkit-transition: width 2s; /* Safari */
+    -webkit-transition-timing-function: linear; /* Safari */
+    transition: width 2s;
+    transition-timing-function: linear;
+}
+
+/*tileview_rightside starts*/
+.tileview_rightside {
+    min-height: @height0;
+    float: @floatleft0;
+    /*margin-left: 19px;
+    margin-right: 30px;*/
+    line-height: 19px;
+    padding-left:5px!important;
+    margin-left:13px;
+
+    p {
+        font-family:@font0;
+        font-size: @fontsize0;
+        color: #7e7e7e;
+        font-weight: normal;
+        margin-bottom:20px;
+    }
+
+    a {
+        color:#059adb;
+        font-weight:normal;
+    }
+
+    i {
+        font-size:10px;
+        margin-left:5px;
+    }
+}
+.partial-period-data-label {
+    margin: 0px 20px;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 11px;
+   display:inline-block;
+}
+
+.headcountrighttab{
+    margin-left:0!important;
+}
+/*tileview_rightside ends*/
+
+.switch-btn-summary .left-btn{
+    width: 40px!important;
+}
+
+.switch-btn-summary .right-btn{
+    width: 40px!important;
+}
+.switch-btn-act {
+    background-color: #FFF;
+}
+
+.switch-btn-inact {
+    background-color: #E5E5E5;
+}
+.bg-cl-fff{
+        background-color:#FFF;
+}
+.bg-cl-E5E5E5{
+        background-color:#E5E5E5;
+}
+        
+@media (min-width:320px) and (max-width:767px) { 
+    .dashboard-icon {
+    margin-left:62px;
+}
+}
+
+@media (min-width:768px) and (max-width:1024px) { 
+    .dashboard-icon {
+    margin-left:62px;
+}
+}
+
+@media (min-width:1025px) and (max-width:1199px) { 
+    .dashboard-icon {
+    margin-left:66px;
+}
+}
+
+/* ----------- Retina Screens ----------- */
+@media screen 
+  and (min-device-width: 1200px) 
+  and (max-device-width: 1600px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (min-resolution: 192dpi) { 
+    .dashboard-icon {
+    margin-left:60px;
+}
+}
+.padL5{padding-left:5px;}

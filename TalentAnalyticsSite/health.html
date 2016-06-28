@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Health Check</title>
+    <script src="/Scripts/angular.js"></script>
+    <link href="/App/core/styles/bootstrap.min.css" rel="stylesheet">
+
+    <script>
+        angular.module("app", []).controller('AppController', ['$scope', '$http', function ($scope, $http) {
+
+                function getEnvironmentName(environment) {
+                    switch (environment) {
+                        case 'd':
+                            return 'Dev';
+                        case 's':
+                            return 'Stage';
+                        case 'q':
+                            return 'QA';
+                        case 'p':
+                            return 'Prod';
+                    }
+                }
+
+                $scope.environment = 'd';
+                $scope.$watch('environment', function(newValue, oldValue){
+                    $scope.baseUrl = 'https://ushdbhw' + newValue + '.deloitte.com/deloitte/hr/app-talent-analytics/'
+                    $scope.environmentName = getEnvironmentName(newValue);
+                   
+                    angular.forEach($scope.urls, function (entry) {
+
+                        var url = $scope.baseUrl + entry.url + '$format=json';
+                        $http({
+                            url: url,
+                            method: 'GET',
+                            withCredentials: true,
+                        }).success(function (req, res) {
+                            entry.autoScroll = true;
+                        }).error(function (req, res) {
+                            entry.error = true;
+                        });
+                    });
+                });
+                
+
+                $scope.urls = [
+                    { title: 'User Info', url: 'Services/Talent_Analytics_User_Info.xsodata/USER_INFO?' },
+                    { title: 'Keep Alive', url: 'XSJS/KeepAlive.xsjs?' },
+                    { title: 'Employee Search', url: 'Services/Employee_Quickview_Search.xsodata/EMPLOYEE_QV_SEARCHParameters(IP_EQV_SEARCH=\'a\')/Results?$skip=0&$top=9&' },
+                    { title: 'Summary Left View', url: 'Services/Employee_QV_Left_Summary_Screen.xsodata/EMPLOYEE_QV_LEFT_SUMMARY_SCREENParameters(IP_PGEPERSID=\'00274731\')/Results?' },
+                    { title: 'Summary Compensation History', url: 'Services/Employee_Quickview_Compensation_Summary.xsodata/EMPLOYEE_QV_COMPENSATION_SUMMARYParameters(IP_PGEPERSID=\'00100001\')/Results?' },
+                    { title: 'Summary Job History', url: 'Services/Employee_Quickview_Job_History_Summary.xsodata/EMPLOYEE_QV_JOB_HISTORY_SUMMARYParameters(IP_PGEPERSID=\'00274731\')/Results?' },
+                    { title: 'Summary Ratings History', url: 'Services/Employee_Quickview_Ratings_History_Summary.xsodata/EMPLOYEE_QV_RATINGS_HISTORY_SUMMARYParameters(IP_PGEPERSID=\'00274731\')/Results?' },
+                    { title: 'Summary Certifications', url: 'Services/Employee_Quickview_Certifications_Summary.xsodata/EMPLOYEE_QV_CERTIFICATIONS_SUMMARYParameters(IP_PGEPERSID=\'00274731\')/Results?' },
+                    { title: 'Summary Activity History', url: 'Services/Employee_Quickview_Activity_History_Summary.xsodata/EMPLOYEE_QV_ACTIVITY_HISTORY_SUMMARYParameters(IP_PGEPERSID=\'00274731\')/Results?' },
+                    { title: 'Summary Left View Edit Get', url: 'Services/Employee_QV_Left_Edit_View_Summary_Screen.xsodata/EMPLOYEE_QV_LEFT_EDIT_VIEW_SUMMARY_SCREENParameters(IP_PGEPERSID=\'00100724\')/Results?' },
+                    { title: 'Detail View Basic Info', url: 'Services/Employee_Quickview_Basic_Info_Detailed.xsodata/EMPLOYEE_QV_BASIC_INFO_DETAILEDParameters(IP_PGEPERSID=\'00100001\')/Results?' },
+                    { title: 'Detail View Activity History', url: 'Services/Employee_Quickview_Activity_History_Details.xsodata/EMPLOYEE_QV_ACTIVITY_HISTORY_DETAILSParameters(IP_PGEPERSID=\'00100001\')/Results?' },
+                    { title: 'Detail View Job History', url: 'Services/Employee_Quickview_Job_History_Details.xsodata/EMPLOYEE_QV_JOB_HISTORY_DETAILSParameters(IP_PGEPERSID=\'00100001\')/Results?' },
+                    { title: 'Detail View Compensation History', url: 'Services/Employee_Quickview_Compensation_Detailed.xsodata/EMPLOYEE_QV_COMPENSATION_DETAILEDParameters(IP_PGEPERSID=\'00100724\')/Results?' },
+                    { title: 'Detail View Ratings History', url: 'Services/Employee_Quickview_Ratings_History_Detailed.xsodata/EMPLOYEE_QV_RATINGS_HISTORY_DETAILEDParameters(IP_PGEPERSID=\'00100024\')/Results?' },
+                    { title: 'Detail View FWA', url: 'Services/Employee_Quickview_FWA_History_Detailed.xsodata/FWA_HISTORY_DETAILParameters(IP_PGEPERSID=\'00100724\')/Results?' },
+                    { title: 'Detail View Education Details', url: 'Services/Employee_Quickview_Educations_Detailed.xsodata/EMPLOYEE_QV_EDUCATIONS_DETAILSParameters(IP_PGEPERSID=\'00100724\')/Results?' },
+                    { title: 'Detail View Certification Details', url: 'Services/Employee_Quickview_Certifications_Details.xsodata/EMPLOYEE_QV_CERTIFICATIONS_DETAILSParameters(IP_PGEPERSID=\'00100639\')/Results?' },
+                    { title: 'Detail View LOA History Details', url: 'Services/Employee_Quickview_Detailed_LOA_History.xsodata/EMPLOYEE_QV_DETAILED_LOA_HISTORY_SCREENParameters(IP_PGEPERSID=\'00100001\')/Results?' },
+                    {title: 'Consolidated View Get', url: 'Services/Employee_Quickview_Consolidated_Get_Service.xsodata/Consolidated_GetParameters(USERNAME=\'IBRKHAN\',IP_PGEPERSID=\'00100724\')/Results?'},
+                    { title: 'Detail View CPA Details', url: 'Services/Employee_Quickview_CPA_Exam_Scores.xsodata/EMPLOYEE_QV_CPA_DETAILSParameters(IP_PGEPERSID=\'00100724\')/Results?' }
+                ];
+               
+
+               
+            }]);
+
+    </script>
+    <style>
+    .break-word{
+    word-wrap:break-word; 
+    }
+    .icon-autoscroll {
+    background-color: green;
+    color:#fff;
+    }
+    .icon-autoscroll-disabled {
+    background-color: red;
+
+    }
+    a.list-group-item, button.list-group-item{
+    color:#fff;
+    }
+    </style>
+</head>
+<body ng-app="app">
+    <div class="container" ng-controller="AppController">
+        <h2>Health Check</h2>
+        <h4>Click on the urls to check the health of the different HANA services</h4>
+        <select ng-model="environment">
+            <option value="d">Dev</option>
+            <option value="s">Stage</option>
+            <option value="q">QA</option>
+            <option value="p">Prod</option>
+        </select>
+        <h2>{{environmentName}}</h2>
+        <div class="list-group" >
+            <a ng-repeat="urlItem in urls" class="list-group-item" ng-class="{'icon-autoscroll': urlItem.autoScroll,'icon-autoscroll-disabled': urlItem.error}" target="_blank" href="{{baseUrl}}{{urlItem.url}}$format=json">
+                {{urlItem.title}}
+            </a>
+        </div>
+    </div>
+</body>
+</html>

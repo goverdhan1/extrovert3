@@ -1,0 +1,47 @@
+﻿@charset "utf-8";
+/* CSS Document */
+/*less type of css*/
+/*variables*/
+/*less type of css*/
+body {
+  margin: 0 auto;
+  margin: 0px;
+  padding: 0px;
+  font: 12px sans-serif;
+}
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+.line.second {
+  stroke: red;
+}
+.area {
+  fill: none;
+  opacity: 0.5;
+}
+.dot {
+  fill: #000000;
+  stroke: #fff;
+  stroke-width: 2px;
+}
+.hcm-landing-linechart {
+  min-height: 250px;
+  margin-left: -16px;
+}
+.hcm-landing-linechart .loading {
+  padding-top: 120px;
+  padding-left: 200px;
+  opacity: .7;
+}
+.chart {
+  padding-top: 10px;
+}
+/*# sourceMappingURL=headcountlinechat.css.map */

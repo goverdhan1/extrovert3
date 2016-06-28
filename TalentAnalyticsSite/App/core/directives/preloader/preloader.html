@@ -1,0 +1,15 @@
+﻿<div data-ng-hide="!loading" class="preloader" ng-class="{error: error}">
+    <img ng-src="App/core/directives/preloader/preloader.gif" alt="Loading, please wait" />
+    <!--TODO: remove if error showing here is not needed-->
+    <!--<div class="error-wrapper">
+        <h3 class="error-message text-center" ng-show="!!error.message" ng-bind="error.message">            
+        </h3>
+        <div class="error-datails-wrapper" ng-if="debugEnabled">
+            <button class="btn btn-default btn-close" ng-hide="isDetailsCollapsed" ng-click="isDetailsCollapsed=!isDetailsCollapsed">&times;</button>
+            <p class="text-center" ng-show="isDetailsCollapsed"><button class="btn btn-default" ng-click="isDetailsCollapsed=!isDetailsCollapsed">See details</button></p>
+            <pre class="error-details" collapse="isDetailsCollapsed" ng-bind="error | json:4">                
+            </pre>
+        </div>
+    </div>--> 
+</div>
+

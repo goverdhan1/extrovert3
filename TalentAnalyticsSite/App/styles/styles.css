@@ -1,0 +1,39 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin top by header height */
+  margin-top: 70px;
+  /* Margin bottom by footer height */
+  margin-bottom: 50px;
+}
+
+.home-div{
+  padding-left: 20px;
+}
+
+.options-ul{  
+  list-style-type: none;
+}
+
+.li_style{
+  margin: 3px;
+}
+
+.required-astriek{
+  color: red;
+  font-size: 16px;
+}
+
+.text-input-min-size{
+  width: 250px;
+}
+
+.required-message{
+  color: red;
+}
+
+.delete-span{
+  cursor: pointer;
+}

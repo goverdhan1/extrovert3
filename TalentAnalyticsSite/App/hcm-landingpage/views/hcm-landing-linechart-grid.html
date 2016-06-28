@@ -1,0 +1,93 @@
+﻿<div class="row">
+    <div class="col-xs-12">
+        <div class="headcountlinechartgridmarginleft">
+            <div class="headcountlinechartgridoverflow">
+  
+                <div data-ng-app="" data-ng-init="hcmstaticvalues=[{ Beginninghcm:'Beginning Headcount', Starts:'Starts', Terms:'Terms', Transfersin: 'Transfers In', Transfersout:'Transfers Out', Miscellaneous:'Miscellaneous Adjustments',Endinghcm:'Ending Headcount', BeginningLOA:'Beginning LOA', EndingLOA:'Ending LOA'}]">
+
+
+<!--pdf view start-->
+<div class="matric-data-right-scroll">
+    <div ng-repeat="pdfdata in pdfgriddata" class="hcm-pdfdetailedview"  >
+
+    <div ng-if="$index % 10 == 0" class="pdfviewshow">
+        <div ng-repeat="hcmstaticvalue in hcmstaticvalues">
+            <div class="hcm-pdfdetailedview-hedding" style="height:32px;"></div>
+            <div class="hcm-pdfdetailedview-hedding">{{hcmstaticvalue.Beginninghcm}}</div>
+            <div class="hcm-pdfdetailedview-hedding">{{hcmstaticvalue.Starts}}</div>
+            <div class="hcm-pdfdetailedview-hedding">{{hcmstaticvalue.Terms}}</div>
+            <div class="hcm-pdfdetailedview-hedding">{{hcmstaticvalue.Transfersin}}</div>
+            <div class="hcm-pdfdetailedview-hedding">{{hcmstaticvalue.Transfersout}}</div>
+            <div class="hcm-pdfdetailedview-hedding">{{hcmstaticvalue.Miscellaneous}}</div>
+            <div class="hcm-pdfdetailedview-hedding">{{hcmstaticvalue.Endinghcm}}</div>
+            <div class="hcm-pdfdetailedview-hedding">{{hcmstaticvalue.BeginningLOA}}</div>
+            <div class="hcm-pdfdetailedview-hedding">{{hcmstaticvalue.EndingLOA}}</div>
+        </div>
+    </div>
+
+        <div class="viewgraph-pdfdymic pdfviewshow" ng-class="{'viewgraph-pdfdymictwo': rangevalues.length === 2 , 'viewgraph-pdfdymicfour': rangevalues.length === 4 , 'viewgraph-pdfdymicthree': rangevalues.length === 3, 'viewgraph-pdfdymicone': rangevalues.length === 1,  'viewgraph-pdfdymiclargetext':griddata.TIME_SCALE.length > 18  }">
+            <div class=" hcm-pdfdetailedview-sub hcm-pdfdetailedview-bgblock"
+                 ng-class="{'hcm-pdfdetailedview-bgblock-asterisk': pdfdata.isPartialTimeScale}"
+                 ng-model="pdfdata.FY_PERIOD" ng-bind="pdfdata.TIME_SCALE">
+            </div>
+            <div class="hcm-pdfdetailedview-sub" ng-bind="pdfdata.BEGIN_HC | NumberCommasSeparatorFilter"></div>
+            <div class="hcm-pdfdetailedview-sub" ng-bind="pdfdata.STARTS | NumberCommasSeparatorFilter"></div>
+            <div class="hcm-pdfdetailedview-sub" ng-bind="pdfdata.TERMS | NumberCommasSeparatorFilter"></div>
+            <div class="hcm-pdfdetailedview-sub" ng-bind="pdfdata.TRANSFERS_IN | NumberCommasSeparatorFilter"></div>
+            <div class="hcm-pdfdetailedview-sub" ng-bind="pdfdata.TRANSFERS_OUT | NumberCommasSeparatorFilter"></div>
+            <div class="hcm-pdfdetailedview-sub" ng-bind="pdfdata.MISC_ADJ | NumberCommasSeparatorFilter"></div>
+            <div class="hcm-pdfdetailedview-sub" ng-bind="pdfdata.ENDING_HC | NumberCommasSeparatorFilter"></div>
+            <div class="hcm-pdfdetailedview-sub" ng-bind="pdfdata.BEGIN_LOA | NumberCommasSeparatorFilter"></div>
+            <div class="hcm-pdfdetailedview-sub" ng-bind="pdfdata.ENDING_LOA | NumberCommasSeparatorFilter"></div>
+        </div>
+    </div>
+</div>
+<!--pdf view end-->
+
+
+
+
+<div class="matric-data-right-scroll pdfviewhide">
+    <div class="matric-data-left-section">
+        <div ng-repeat="hcmstaticvalue in hcmstaticvalues">
+            <div class=" hcm-pdfdetailedview-hedding" style="overflow: hidden;white-space: nowrap; text-indent: 100%;">{{hcmstaticvalue.Beginninghcm}}</div>
+            <div class="hcm-pdfdetailedview-hedding">{{hcmstaticvalue.Beginninghcm}}</div>
+            <div class="hcm-pdfdetailedview-hedding">{{hcmstaticvalue.Starts}}</div>
+            <div class="hcm-pdfdetailedview-hedding">{{hcmstaticvalue.Terms}}</div>
+            <div class="hcm-pdfdetailedview-hedding">{{hcmstaticvalue.Transfersin}}</div>
+            <div class="hcm-pdfdetailedview-hedding">{{hcmstaticvalue.Transfersout}}</div>
+            <div class="hcm-pdfdetailedview-hedding">{{hcmstaticvalue.Miscellaneous}}</div>
+            <div class="hcm-pdfdetailedview-hedding">{{hcmstaticvalue.Endinghcm}}</div>
+            <div class="hcm-pdfdetailedview-hedding">{{hcmstaticvalue.BeginningLOA}}</div>
+            <div class="hcm-pdfdetailedview-hedding">{{hcmstaticvalue.EndingLOA}}</div>
+        </div>
+    </div>
+
+    <!--for some reason this block had ng-if=" griddata.fy_period" check, where griddata was empty object-->
+    <div class="grid-scroll-area" ng-class="{'grid-scroll-areadymictwo': rangevalues.length === 2 , 'grid-scroll-areadymicfour': rangevalues.length === 4 ,  'grid-scroll-areadymicthree': rangevalues.length === 3, 'grid-scroll-areadymicone': rangevalues.length === 1,  'grid-scroll-areadymiclargetext':griddata.FY_PERIOD.length > 18  }">
+        <div ng-repeat="griddata in rangevalues" class="hcm-pdfdetailedview">
+
+            <div class="viewgraph-pdfdymic" ng-class="{'viewgraph-pdfdymictwo': rangevalues.length === 2 , 'viewgraph-pdfdymicfour': rangevalues.length === 4 ,  'viewgraph-pdfdymicthree': rangevalues.length === 3, 'viewgraph-pdfdymicone': rangevalues.length === 1,  'viewgraph-pdfdymiclargetext':griddata.FY_PERIOD.length > 18  }">
+                <div class=" hcm-pdfdetailedview-sub hcm-pdfdetailedview-bgblock"
+                     ng-class="{'hcm-pdfdetailedview-bgblock-asterisk': griddata.isPartialTimeScale}"
+                     ng-model="griddata.TIME_SCALE" ng-bind="griddata.TIME_SCALE">
+                </div>
+                <div class="hcm-pdfdetailedview-sub" ng-bind="griddata.BEGIN_HC | NumberCommasSeparatorFilter"></div>
+                <div class="hcm-pdfdetailedview-sub" ng-bind="griddata.STARTS | NumberCommasSeparatorFilter"></div>
+                <div class="hcm-pdfdetailedview-sub" ng-bind="griddata.TERMS | NumberCommasSeparatorFilter"></div>
+                <div class="hcm-pdfdetailedview-sub" ng-bind="griddata.TRANSFERS_IN | NumberCommasSeparatorFilter"></div>
+                <div class="hcm-pdfdetailedview-sub" ng-bind="griddata.TRANSFERS_OUT | NumberCommasSeparatorFilter"></div>
+                <div class="hcm-pdfdetailedview-sub" ng-bind="griddata.MISC_ADJ | NumberCommasSeparatorFilter"></div>
+                <div class="hcm-pdfdetailedview-sub" ng-bind="griddata.ENDING_HC | NumberCommasSeparatorFilter"></div>
+                <div class="hcm-pdfdetailedview-sub" ng-bind="griddata.BEGIN_LOA | NumberCommasSeparatorFilter"></div>
+                <div class="hcm-pdfdetailedview-sub" ng-bind="griddata.ENDING_LOA | NumberCommasSeparatorFilter"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
